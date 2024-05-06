@@ -12,7 +12,6 @@ deployments:
         DEBIAN_FRONTEND=noninteractive apt-get -y install nodejs
       - pwd
       - echo "hello"
-      - git clone git@github.com:aniruddhnishad/squashio.git code 
       - cd code
       - npm install
     launch_steps:
