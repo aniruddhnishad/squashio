@@ -10,13 +10,13 @@ deployments:
       - >
         DEBIAN_FRONTEND=noninteractive apt-get update &&
         DEBIAN_FRONTEND=noninteractive apt-get -y install nodejs
-      - cd
+      - pwd
       - echo "hello"
       - git clone git@github.com:aniruddhnishad/squashio.git code 
-      - cd /root/code
+      - cd code
       - npm install
     launch_steps:
-      - cd /root/code
+      - cd code
       - npm start
     port_forwarding:
       # For this example the user's application HTTP service is
