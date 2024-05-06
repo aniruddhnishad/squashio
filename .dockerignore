@@ -1,0 +1,6 @@
+docker-compose.yml
+Dockerfile
+.gitignore
+.dockerignore
+package-lock.json
+node_modules
