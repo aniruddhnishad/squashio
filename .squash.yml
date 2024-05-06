@@ -1,0 +1,17 @@
+deployments:
+  MyApp:
+    dockerimage: ubuntu:16.04
+    build_steps:
+      - >
+        DEBIAN_FRONTEND=noninteractive apt-get update &&
+        DEBIAN_FRONTEND=noninteractive apt-get -y install 
+        curl git sudo 
+      - curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+      - >
+        DEBIAN_FRONTEND=noninteractive apt-get update &&
+        DEBIAN_FRONTEND=noninteractive apt-get -y install nodejs
+      - cd ~/code
+      - npm install
+    launch_steps:
+      - cd ~/code
+      - npm start
