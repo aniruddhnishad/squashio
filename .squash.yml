@@ -1,6 +1,6 @@
 deployments:
   MyApp:
-    dockerimage: ubuntu:16.04
+    dockerimage: ubuntu:22.04
     build_steps:
       - >
         DEBIAN_FRONTEND=noninteractive apt-get update &&
@@ -10,11 +10,13 @@ deployments:
       - >
         DEBIAN_FRONTEND=noninteractive apt-get update &&
         DEBIAN_FRONTEND=noninteractive apt-get -y install nodejs
+      - cd
+      - echo "hello"
       - git clone git@github.com:aniruddhnishad/squashio.git code 
-      - cd ~/code
+      - cd /root/code
       - npm install
     launch_steps:
-      - cd ~/code
+      - cd /root/code
       - npm start
     port_forwarding:
       # For this example the user's application HTTP service is
