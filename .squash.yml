@@ -6,12 +6,18 @@ deployments:
         DEBIAN_FRONTEND=noninteractive apt-get update &&
         DEBIAN_FRONTEND=noninteractive apt-get -y install 
         curl git sudo 
-      - curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+      - curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
       - >
         DEBIAN_FRONTEND=noninteractive apt-get update &&
         DEBIAN_FRONTEND=noninteractive apt-get -y install nodejs
+      - git clone git@github.com:aniruddhnishad/squashio.git code 
       - cd ~/code
       - npm install
     launch_steps:
       - cd ~/code
       - npm start
+    port_forwarding:
+      # For this example the user's application HTTP service is
+      # listening to port 3000. We are mapping to port 80 in the
+      # actual host VM so Squash can route traffic to the application.
+      80:3000
